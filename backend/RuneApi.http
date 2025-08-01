@@ -1,0 +1,6 @@
+@RuneApi_HostAddress = http://localhost:5152
+
+GET {{RuneApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,37 @@
+<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow p-6 text-center">
+  <button
+    routerLink="/runes"
+    class="text-sm text-blue-600 hover:underline mb-4 inline-flex items-center"
+  >
+    ← Back to Runes
+  </button>
+
+  <div class="bg-orange-100 p-6 rounded-lg shadow-md">
+    <img
+      [src]="rune?.imageUrl"
+      [alt]="rune?.name"
+      class="w-42 h-52 mx-auto mb-4"
+    />
+    <h2 class="text-3xl font-bold mb-2">{{ rune?.name }}</h2>
+    <p class="text-gray-700 text-base mb-4">{{ rune?.meaning }}</p>
+
+    <button
+      *ngIf="rune?.reversedMeaning"
+      (click)="showReversed = !showReversed"
+      class="text-sm text-purple-700 hover:underline mb-2"
+    >
+      {{ showReversed ? 'Hide' : 'Show' }} Reversed Meaning
+    </button>
+
+    <p
+      *ngIf="showReversed"
+      class="text-red-600 italic transition-opacity duration-300 ease-in mt-2"
+    >
+      {{ rune?.reversedMeaning }}
+    </p>
+    <div *ngIf="rune?.history" class="mt-4">
+      <h3 class="text-lg font-semibold">Historical Context</h3>
+      <p>{{ rune?.history }}</p>
+    </div>
+  </div>
+</div>
